@@ -1,0 +1,42 @@
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
+
+<div id="app">
+  <h1>Hello App!</h1>
+
+  <p>
+    <router-link to="/home">Home</router-link>
+    <router-link to="/about">About</router-link>
+  </p>
+
+  <p>Router View</p>
+  <router-view></router-view>
+</div>
+
+<script>
+  const Home = {
+    template: "<div> Home </div>",
+  };
+  const About = {
+    template: "<div> About </div>",
+  };
+  const routers = [
+    {
+      path: "/home",
+      component: Home,
+    },
+    {
+      path: "/about",
+      component: About,
+    },
+  ];
+
+  const router = new VueRouter({
+    routers,
+    mode: "history",
+  });
+
+  const app = new Vue({
+    router,
+  }).$mount("#app");
+</script>
